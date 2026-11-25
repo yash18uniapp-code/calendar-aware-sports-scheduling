@@ -1,4 +1,4 @@
-#Calendar-Aware Sports Scheduling
+# Calendar-Aware Sports Scheduling
 Overview
 
 This project extends the RobinX/ITC2021 sports timetabling framework to incorporate calendar-aware scheduling with explicit travel feasibility constraints. Standard scheduling benchmarks such as RobinX treat time slots as abstract integer indices with no calendar semantics, meaning a schedule declared feasible by the model may be physically impossible to execute once mapped to a real calendar. This project addresses that gap by assigning concrete calendar windows to each time slot and introducing a synthetic travel distance matrix, enabling a novel travel feasibility constraint to be formally defined, enforced, and evaluated.
