@@ -74,6 +74,9 @@ Move selection follows a cascading probability rule.
 - **S6 remains structurally invariant** at 44.67 violations across all three variants and all 45 datasets, confirming it is a property of the six-team fixture structure rather than the algorithm.
 - **V3's best configuration is overwhelmingly P7** (slowest cooling, highest iterations), yet still fails to match V1 and V2, confirming the underperformance is structural rather than a matter of search budget.
 
+## Repository Structure
+
+```text
 ├── TestInstance.xml              # ITC 2021 benchmark instance
 ├── Full_Instance.xml             # Enriched instance with travel matrix and initial schedule
 ├── instance_construction.py      # Instance construction, distance matrix, circle method baseline, constraint checker
@@ -87,40 +90,18 @@ Move selection follows a cascading probability rule.
 └── README.md
 
 Requirements
-python >= 3.9
-openpyxl
-scipy
-numpy
+- Python >= 3.9
+- openpyxl
+- scipy
+- numpy
 
-Install dependencies:
+Install Dependencies
 
-bash
 pip install openpyxl scipy numpy
 
 How to Run
+Step 1: Construct the Instance
 
-Step 1: Construct the instance
-
-bash
-python instance_construction.py
-
-This loads TestInstance.xml, generates the distance matrix, builds the circle method initial schedule, runs the constraint checker, and saves everything to Full_Instance.xml.
-
-Step 2: Run SA experiments
-
-bash
-python sa_v1_experiments.py
-python sa_v2_experiments.py
-python sa_v3_experiments.py
-
-Each script runs the respective variant across all 45 datasets and 10 parameter configurations and exports results to Excel.
-
-Step 3: Statistical comparison
-
-bash
-python statistical_tests.py
-
-Runs paired t-tests and Wilcoxon signed-rank tests comparing V1, V2, and V3.
 
 ## Parameter Configurations
 
