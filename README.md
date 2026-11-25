@@ -74,6 +74,7 @@ Move selection follows a cascading probability rule.
 - **S6 remains structurally invariant** at 44.67 violations across all three variants and all 45 datasets, confirming it is a property of the six-team fixture structure rather than the algorithm.
 - **V3's best configuration is overwhelmingly P7** (slowest cooling, highest iterations), yet still fails to match V1 and V2, confirming the underperformance is structural rather than a matter of search budget.
 
+
 ## Repository Structure
 
 ```text
@@ -88,45 +89,53 @@ Move selection follows a cascading probability rule.
 ├── sa_v2_results.xlsx            # V2 results exported to Excel
 ├── sa_v3_results.xlsx            # V3 results exported to Excel
 └── README.md
+```
 
-Requirements
+---
+
+## Requirements
+
 - Python >= 3.9
 - openpyxl
 - scipy
 - numpy
 
-Install Dependencies
+### Install Dependencies
 
+```bash
 pip install openpyxl scipy numpy
+```
 
-How to Run
-Step 1: Construct the Instance
+---
 
+## How to Run
+
+### Step 1: Construct the Instance
+
+```bash
 python instance_construction.py
+```
 
+This loads `TestInstance.xml`, generates the distance matrix, builds the circle method initial schedule, runs the constraint checker, and saves everything to `Full_Instance.xml`.
 
-This loads TestInstance.xml, generates the distance matrix, builds the circle method initial schedule, runs the constraint checker, and saves everything to Full_Instance.xml.
+### Step 2: Run SA Experiments
 
-Step 2: Run SA Experiments
+```bash
 python sa_v1_experiments.py
 python sa_v2_experiments.py
 python sa_v3_experiments.py
-
+```
 
 Each script runs the respective variant across all 45 datasets and 10 parameter configurations and exports results to Excel.
 
-Step 3: Statistical Comparison
-python statistical_tests.py
+### Step 3: Statistical Comparison
 
+```bash
+python statistical_tests.py
+```
 
 Runs paired t-tests and Wilcoxon signed-rank tests comparing V1, V2, and V3.
 
-## Formatting improvements:**
-- Consistent `##` and `###` heading hierarchy.
-- Correct language identifiers for code blocks (`text` and `bash`).
-- Filenames formatted as inline code.
-- Removed unnecessary standalone `bash` labels.
-- Consistent spacing between sections.
 
 
 ## Parameter Configurations
