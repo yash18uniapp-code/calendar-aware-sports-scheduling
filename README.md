@@ -6,7 +6,7 @@ This project extends the RobinX/ITC2021 sports timetabling framework to incorpor
 The project was developed as part of an MSc dissertation in Business Analytics and Management Science at the University of Southampton.
 
 
-Research Contributions
+## Research Contributions
 
 Novel Constraint H3 — Travel Feasibility
 Requires that the calendar gap between a team's consecutive fixtures is sufficient to cover the return journey home after the first fixture and the onward journey to the location of the second. This constraint has no equivalent in the existing RobinX taxonomy or any ITC2021 benchmark instance.
@@ -16,3 +16,24 @@ Penalises schedules in which a team faces a disproportionate concentration of st
 
 Three Progressive SA Variants
 Evaluates whether targeted, constraint-specific repair logic improves on generic neighbourhood search, and whether that improvement compounds when multiple targeted mechanisms are combined.
+
+## Problem Setup
+1 . Instance: ITC 2021 Test Instance 2 (6 teams, double round-robin, 10 slots, 30 fixtures)
+2 . Calendar extension: 3-day contiguous windows per slot from 10 August 2024
+3 . Travel matrix: Synthetic, symmetric, seeded for reproducibility
+4 . Travel ranges tested: Short (1–2 days), Medium (2–3 days), Mixed (1–3 days)
+5 . Strength profiles: Balanced, Skewed, Uniform
+6 . Total datasets: 45
+7 . Parameter configurations: 10
+8 . Total optimisation runs: 1,350
+
+## Constraints
+
+| ID | Name                          | Type         | Penalty           |
+|:---|:------------------------------|:-------------|:------------------|
+| H1 | Round Balance and Compactness | Hard         | 999               |
+| H3 | Travel Feasibility             | Hard (Novel) | 999               |
+| H4 | Double Round-Robin Integrity  | Hard         | 999               |
+| H5 | Home Away Balance              | Hard         | 999               |
+| S5 | Rest Day Adequacy              | Soft         | 1 per day short   |
+| S6 | Fixture Difficulty Spacing     | Soft (Novel) | 5 per unit excess |
