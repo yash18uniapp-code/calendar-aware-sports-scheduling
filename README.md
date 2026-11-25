@@ -102,6 +102,30 @@ pip install openpyxl scipy numpy
 How to Run
 Step 1: Construct the Instance
 
+python instance_construction.py
+
+
+This loads TestInstance.xml, generates the distance matrix, builds the circle method initial schedule, runs the constraint checker, and saves everything to Full_Instance.xml.
+Step 2: Run SA Experiments
+python sa_v1_experiments.py
+python sa_v2_experiments.py
+python sa_v3_experiments.py
+
+
+Each script runs the respective variant across all 45 datasets and 10 parameter configurations and exports results to Excel.
+Step 3: Statistical Comparison
+python statistical_tests.py
+
+
+Runs paired t-tests and Wilcoxon signed-rank tests comparing V1, V2, and V3.
+
+**Formatting improvements:**
+- Consistent `##` and `###` heading hierarchy.
+- Correct language identifiers for code blocks (`text` and `bash`).
+- Filenames formatted as inline code.
+- Removed unnecessary standalone `bash` labels.
+- Consistent spacing between sections.
+
 
 ## Parameter Configurations
 
